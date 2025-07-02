@@ -65,7 +65,7 @@ Sistema Ra Assistência Técnica
     `);
     
     // Abrir cliente de email
-    window.location.href = `mailto:lixeiradoyuno@gmail.com?subject=${subject}&body=${body}`;
+    window.location.href = `mailto:raassistenciatecnica@proton.me?subject=${subject}&body=${body}`;
     
     // Limpar formulário
     setFormData({
@@ -490,7 +490,7 @@ Sistema Ra Assistência Técnica
                     </div>
                     <div>
                       <p className="font-semibold text-white text-xl">E-mail</p>
-                      <p className="text-gray-400 text-lg">lixeiradoyuno@gmail.com</p>
+                      <p className="text-gray-400 text-lg">raassistenciatecnica@proton.me</p>
                     </div>
                   </div>
                   <div className="flex items-center space-x-6">
