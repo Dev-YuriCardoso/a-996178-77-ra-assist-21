@@ -147,7 +147,7 @@ const AdminPanel = ({ onLogout }) => {
   const renderDashboard = () => (
     <div className="space-y-6">
       {/* Cards de resumo */}
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
         <Card>
           <CardHeader className="pb-3">
             <CardTitle className="text-sm font-medium text-gray-600">Total de Produtos</CardTitle>
@@ -222,20 +222,20 @@ const AdminPanel = ({ onLogout }) => {
           <CardTitle>Adicionar Novo Produto</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             <input
               type="text"
               placeholder="Nome do produto"
               value={newProduct.name}
               onChange={(e) => setNewProduct({...newProduct, name: e.target.value})}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
             />
             <input
               type="number"
               placeholder="Quantidade"
               value={newProduct.quantity}
               onChange={(e) => setNewProduct({...newProduct, quantity: e.target.value})}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
             />
             <input
               type="number"
@@ -243,11 +243,11 @@ const AdminPanel = ({ onLogout }) => {
               placeholder="Preço (R$)"
               value={newProduct.price}
               onChange={(e) => setNewProduct({...newProduct, price: e.target.value})}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
             />
-            <Button onClick={addProduct} className="bg-blue-600 hover:bg-blue-700">
+            <Button onClick={addProduct} size="sm" className="bg-blue-600 hover:bg-blue-700">
               <Plus className="h-4 w-4 mr-2" />
-              Adicionar
+              <span className="text-sm">Adicionar</span>
             </Button>
           </div>
         </CardContent>
@@ -260,31 +260,31 @@ const AdminPanel = ({ onLogout }) => {
         </CardHeader>
         <CardContent>
           <div className="overflow-x-auto">
-            <table className="w-full">
+            <table className="w-full min-w-[600px]">
               <thead>
                 <tr className="border-b">
-                  <th className="text-left py-3">Produto</th>
-                  <th className="text-left py-3">Quantidade</th>
-                  <th className="text-left py-3">Preço</th>
-                  <th className="text-left py-3">Valor Total</th>
-                  <th className="text-left py-3">Ações</th>
+                  <th className="text-left py-2 sm:py-3 text-sm sm:text-base">Produto</th>
+                  <th className="text-left py-2 sm:py-3 text-sm sm:text-base">Qtd</th>
+                  <th className="text-left py-2 sm:py-3 text-sm sm:text-base">Preço</th>
+                  <th className="text-left py-2 sm:py-3 text-sm sm:text-base">Total</th>
+                  <th className="text-left py-2 sm:py-3 text-sm sm:text-base">Ações</th>
                 </tr>
               </thead>
               <tbody>
                 {products.map((product) => (
                   <tr key={product.id} className="border-b">
-                    <td className="py-3">{product.name}</td>
-                    <td className="py-3">{product.quantity}</td>
-                    <td className="py-3">R$ {product.price.toFixed(2)}</td>
-                    <td className="py-3">R$ {(product.quantity * product.price).toFixed(2)}</td>
-                    <td className="py-3">
+                    <td className="py-2 sm:py-3 text-xs sm:text-sm">{product.name}</td>
+                    <td className="py-2 sm:py-3 text-xs sm:text-sm">{product.quantity}</td>
+                    <td className="py-2 sm:py-3 text-xs sm:text-sm">R$ {product.price.toFixed(2)}</td>
+                    <td className="py-2 sm:py-3 text-xs sm:text-sm">R$ {(product.quantity * product.price).toFixed(2)}</td>
+                    <td className="py-2 sm:py-3">
                       <Button
                         onClick={() => deleteProduct(product.id)}
                         variant="outline"
                         size="sm"
-                        className="text-red-600 border-red-300 hover:bg-red-50"
+                        className="text-red-600 border-red-300 hover:bg-red-50 p-1 sm:p-2"
                       >
-                        <Trash2 className="h-4 w-4" />
+                        <Trash2 className="h-3 w-3 sm:h-4 sm:w-4" />
                       </Button>
                     </td>
                   </tr>
@@ -305,11 +305,11 @@ const AdminPanel = ({ onLogout }) => {
           <CardTitle>Registrar Nova Venda</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             <select
               value={newSale.productId}
               onChange={(e) => setNewSale({...newSale, productId: e.target.value})}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
             >
               <option value="">Selecione o produto</option>
               {products.filter(p => p.quantity > 0).map(product => (
@@ -321,7 +321,7 @@ const AdminPanel = ({ onLogout }) => {
             <select
               value={newSale.sellerId}
               onChange={(e) => setNewSale({...newSale, sellerId: e.target.value})}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
             >
               <option value="">Selecione o vendedor</option>
               {sellers.map(seller => (
@@ -333,11 +333,11 @@ const AdminPanel = ({ onLogout }) => {
               placeholder="Quantidade"
               value={newSale.quantity}
               onChange={(e) => setNewSale({...newSale, quantity: e.target.value})}
-              className="px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
             />
-            <Button onClick={addSale} className="bg-green-600 hover:bg-green-700">
+            <Button onClick={addSale} size="sm" className="bg-green-600 hover:bg-green-700">
               <Plus className="h-4 w-4 mr-2" />
-              Registrar Venda
+              <span className="text-sm">Registrar Venda</span>
             </Button>
           </div>
         </CardContent>
@@ -350,26 +350,26 @@ const AdminPanel = ({ onLogout }) => {
         </CardHeader>
         <CardContent>
           <div className="overflow-x-auto">
-            <table className="w-full">
+            <table className="w-full min-w-[600px]">
               <thead>
                 <tr className="border-b">
-                  <th className="text-left py-3">Data</th>
-                  <th className="text-left py-3">Produto</th>
-                  <th className="text-left py-3">Vendedor</th>
-                  <th className="text-left py-3">Quantidade</th>
-                  <th className="text-left py-3">Valor Total</th>
+                  <th className="text-left py-2 sm:py-3 text-sm sm:text-base">Data</th>
+                  <th className="text-left py-2 sm:py-3 text-sm sm:text-base">Produto</th>
+                  <th className="text-left py-2 sm:py-3 text-sm sm:text-base">Vendedor</th>
+                  <th className="text-left py-2 sm:py-3 text-sm sm:text-base">Qtd</th>
+                  <th className="text-left py-2 sm:py-3 text-sm sm:text-base">Total</th>
                 </tr>
               </thead>
               <tbody>
                 {sales.map((sale) => (
                   <tr key={sale.id} className="border-b">
-                    <td className="py-3">
+                    <td className="py-2 sm:py-3 text-xs sm:text-sm">
                       {new Date(sale.date).toLocaleDateString('pt-BR')}
                     </td>
-                    <td className="py-3">{sale.productName}</td>
-                    <td className="py-3">{sale.sellerId}</td>
-                    <td className="py-3">{sale.quantity}</td>
-                    <td className="py-3">R$ {sale.totalValue.toFixed(2)}</td>
+                    <td className="py-2 sm:py-3 text-xs sm:text-sm">{sale.productName}</td>
+                    <td className="py-2 sm:py-3 text-xs sm:text-sm">{sale.sellerId}</td>
+                    <td className="py-2 sm:py-3 text-xs sm:text-sm">{sale.quantity}</td>
+                    <td className="py-2 sm:py-3 text-xs sm:text-sm">R$ {sale.totalValue.toFixed(2)}</td>
                   </tr>
                 ))}
               </tbody>
@@ -388,17 +388,17 @@ const AdminPanel = ({ onLogout }) => {
           <CardTitle>Adicionar Novo Vendedor</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="flex gap-4">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
             <input
               type="text"
               placeholder="Nome do vendedor"
               value={newSeller}
               onChange={(e) => setNewSeller(e.target.value)}
-              className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+              className="flex-1 px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
             />
-            <Button onClick={addSeller} className="bg-blue-600 hover:bg-blue-700">
+            <Button onClick={addSeller} size="sm" className="bg-blue-600 hover:bg-blue-700 w-full sm:w-auto">
               <UserPlus className="h-4 w-4 mr-2" />
-              Adicionar Vendedor
+              <span className="text-sm">Adicionar Vendedor</span>
             </Button>
           </div>
         </CardContent>
@@ -412,18 +412,18 @@ const AdminPanel = ({ onLogout }) => {
         <CardContent>
           <div className="space-y-3">
             {sellers.map((seller) => (
-              <div key={seller} className="flex justify-between items-center p-4 bg-gray-50 rounded-lg">
-                <div className="flex items-center space-x-3">
-                  <Users className="h-5 w-5 text-blue-600" />
-                  <span className="font-medium">{seller}</span>
+              <div key={seller} className="flex justify-between items-center p-3 sm:p-4 bg-gray-50 rounded-lg">
+                <div className="flex items-center space-x-2 sm:space-x-3">
+                  <Users className="h-4 w-4 sm:h-5 sm:w-5 text-blue-600" />
+                  <span className="font-medium text-sm sm:text-base">{seller}</span>
                 </div>
                 <Button
                   onClick={() => deleteSeller(seller)}
                   variant="outline"
                   size="sm"
-                  className="text-red-600 border-red-300 hover:bg-red-50"
+                  className="text-red-600 border-red-300 hover:bg-red-50 p-1 sm:p-2"
                 >
-                  <Trash2 className="h-4 w-4" />
+                  <Trash2 className="h-3 w-3 sm:h-4 sm:w-4" />
                 </Button>
               </div>
             ))}
@@ -437,60 +437,60 @@ const AdminPanel = ({ onLogout }) => {
     <div className="min-h-screen bg-gray-100">
       {/* Header */}
       <header className="bg-white shadow-sm border-b">
-        <div className="px-6 py-4 flex justify-between items-center">
-          <h1 className="text-2xl font-bold text-gray-900">Painel Administrativo - Ra Assistência</h1>
-          <Button onClick={onLogout} variant="outline" className="text-red-600 border-red-300 hover:bg-red-50">
+        <div className="px-3 sm:px-6 py-3 sm:py-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-0">
+          <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-900">Painel Administrativo - Ra Assistência</h1>
+          <Button onClick={onLogout} variant="outline" size="sm" className="text-red-600 border-red-300 hover:bg-red-50 w-full sm:w-auto">
             <LogOut className="h-4 w-4 mr-2" />
             Sair
           </Button>
         </div>
       </header>
 
-      <div className="flex">
+      <div className="flex flex-col lg:flex-row">
         {/* Sidebar */}
-        <aside className="w-64 bg-white shadow-sm min-h-screen">
-          <nav className="p-4 space-y-2">
+        <aside className="w-full lg:w-64 bg-white shadow-sm lg:min-h-screen">
+          <nav className="p-3 sm:p-4 flex lg:flex-col overflow-x-auto lg:overflow-x-visible space-x-2 lg:space-x-0 lg:space-y-2">
             <button
               onClick={() => setActiveTab('dashboard')}
-              className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-colors ${
+              className={`flex-shrink-0 lg:w-full flex items-center justify-center lg:justify-start space-x-0 lg:space-x-3 px-3 lg:px-4 py-2 lg:py-3 rounded-lg text-center lg:text-left transition-colors ${
                 activeTab === 'dashboard' ? 'bg-blue-100 text-blue-700' : 'text-gray-700 hover:bg-gray-100'
               }`}
             >
               <BarChart3 className="h-5 w-5" />
-              <span>Dashboard</span>
+              <span className="hidden lg:inline text-sm lg:text-base">Dashboard</span>
             </button>
             <button
               onClick={() => setActiveTab('products')}
-              className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-colors ${
+              className={`flex-shrink-0 lg:w-full flex items-center justify-center lg:justify-start space-x-0 lg:space-x-3 px-3 lg:px-4 py-2 lg:py-3 rounded-lg text-center lg:text-left transition-colors ${
                 activeTab === 'products' ? 'bg-blue-100 text-blue-700' : 'text-gray-700 hover:bg-gray-100'
               }`}
             >
               <Package className="h-5 w-5" />
-              <span>Produtos</span>
+              <span className="hidden lg:inline text-sm lg:text-base">Produtos</span>
             </button>
             <button
               onClick={() => setActiveTab('sales')}
-              className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-colors ${
+              className={`flex-shrink-0 lg:w-full flex items-center justify-center lg:justify-start space-x-0 lg:space-x-3 px-3 lg:px-4 py-2 lg:py-3 rounded-lg text-center lg:text-left transition-colors ${
                 activeTab === 'sales' ? 'bg-blue-100 text-blue-700' : 'text-gray-700 hover:bg-gray-100'
               }`}
             >
               <DollarSign className="h-5 w-5" />
-              <span>Vendas</span>
+              <span className="hidden lg:inline text-sm lg:text-base">Vendas</span>
             </button>
             <button
               onClick={() => setActiveTab('sellers')}
-              className={`w-full flex items-center space-x-3 px-4 py-3 rounded-lg text-left transition-colors ${
+              className={`flex-shrink-0 lg:w-full flex items-center justify-center lg:justify-start space-x-0 lg:space-x-3 px-3 lg:px-4 py-2 lg:py-3 rounded-lg text-center lg:text-left transition-colors ${
                 activeTab === 'sellers' ? 'bg-blue-100 text-blue-700' : 'text-gray-700 hover:bg-gray-100'
               }`}
             >
               <Users className="h-5 w-5" />
-              <span>Vendedores</span>
+              <span className="hidden lg:inline text-sm lg:text-base">Vendedores</span>
             </button>
           </nav>
         </aside>
 
         {/* Main content */}
-        <main className="flex-1 p-6">
+        <main className="flex-1 p-3 sm:p-4 lg:p-6">
           {activeTab === 'dashboard' && renderDashboard()}
           {activeTab === 'products' && renderProducts()}
           {activeTab === 'sales' && renderSales()}

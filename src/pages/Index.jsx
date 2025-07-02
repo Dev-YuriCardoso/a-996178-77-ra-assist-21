@@ -84,20 +84,20 @@ Sistema Ra Assistência Técnica
     <div className="min-h-screen bg-gradient-to-br from-gray-900 via-slate-900 to-black">
       {/* Header */}
       <header className="bg-black/80 backdrop-blur-xl shadow-2xl border-b border-gray-700/50 sticky top-0 z-50">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <div className="flex items-center space-x-3">
-            <div className="p-3 bg-gradient-to-br from-cyan-500 via-blue-600 to-purple-700 rounded-2xl shadow-2xl relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-400 to-purple-600 rounded-2xl blur-lg opacity-60 animate-pulse"></div>
-              <Wrench className="h-8 w-8 text-white relative z-10" />
+        <div className="container mx-auto px-2 sm:px-4 py-3 sm:py-4 flex justify-between items-center">
+          <div className="flex items-center space-x-2 sm:space-x-3">
+            <div className="p-2 sm:p-3 bg-gradient-to-br from-cyan-500 via-blue-600 to-purple-700 rounded-xl sm:rounded-2xl shadow-2xl relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-cyan-400 to-purple-600 rounded-xl sm:rounded-2xl blur-lg opacity-60 animate-pulse"></div>
+              <Wrench className="h-5 w-5 sm:h-8 sm:w-8 text-white relative z-10" />
             </div>
             <div>
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+              <h1 className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Ra Assistência Técnica
               </h1>
-              <p className="text-sm text-gray-400 font-medium">Tecnologia Avançada</p>
+              <p className="text-xs sm:text-sm text-gray-400 font-medium">Tecnologia Avançada</p>
             </div>
           </div>
-          <nav className="hidden md:flex space-x-8">
+          <nav className="hidden lg:flex space-x-8">
             {['Início', 'Serviços', 'Sobre', 'Contato'].map((item) => (
               <a 
                 key={item} 
@@ -110,24 +110,28 @@ Sistema Ra Assistência Técnica
               </a>
             ))}
           </nav>
-          <div className="flex space-x-3">
+          <div className="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
             <Button 
               onClick={() => setIsLoginOpen(true)}
+              size="sm"
               className="bg-gradient-to-r from-red-600 to-rose-700 hover:from-red-700 hover:to-rose-800 text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300"
             >
-              <LogIn className="mr-2 h-4 w-4" />
-              Login
+              <LogIn className="mr-1 h-3 w-3 sm:mr-2 sm:h-4 sm:w-4" />
+              <span className="text-xs sm:text-sm">Login</span>
             </Button>
-            <Button className="bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-700 hover:from-cyan-600 hover:via-blue-700 hover:to-purple-800 text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300">
-              <Zap className="mr-2 h-4 w-4" />
-              Orçamento Grátis
+            <Button 
+              size="sm"
+              className="bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-700 hover:from-cyan-600 hover:via-blue-700 hover:to-purple-800 text-white border-0 shadow-xl hover:shadow-2xl transition-all duration-300"
+            >
+              <Zap className="mr-1 h-3 w-3 sm:mr-2 sm:h-4 sm:w-4" />
+              <span className="text-xs sm:text-sm">Orçamento</span>
             </Button>
           </div>
         </div>
       </header>
 
       {/* Hero Section */}
-      <section className="py-24 relative overflow-hidden">
+      <section className="py-12 sm:py-16 lg:py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-slate-900/70 to-black/90"></div>
         {/* Tech Grid Background */}
         <div className="absolute inset-0 opacity-20">
@@ -147,7 +151,7 @@ Sistema Ra Assistência Técnica
         <div className="absolute bottom-20 left-1/3 w-16 h-16 bg-gradient-to-br from-purple-500/20 to-cyan-500/20 rounded-full blur-xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         
         <div className="container mx-auto px-4 relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             <div className="space-y-8">
               <div className="inline-flex items-center space-x-2 bg-black/70 backdrop-blur-sm border border-cyan-400/50 rounded-full px-6 py-3 shadow-2xl">
                 <Cpu className="h-5 w-5 text-cyan-400" />
@@ -155,7 +159,7 @@ Sistema Ra Assistência Técnica
               </div>
               
               <div className="space-y-4">
-                <h2 className="text-6xl md:text-7xl font-black leading-tight">
+                <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black leading-tight">
                   <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent animate-pulse">Conserto</span>
                   <br />
                   <span className="bg-gradient-to-r from-red-500 via-pink-500 to-rose-600 bg-clip-text text-transparent">Tech</span>
@@ -164,37 +168,37 @@ Sistema Ra Assistência Técnica
                 </h2>
               </div>
               
-              <p className="text-xl text-gray-300 leading-relaxed max-w-lg">
+              <p className="text-base sm:text-lg lg:text-xl text-gray-300 leading-relaxed max-w-lg">
                 Especialistas em reparo de dispositivos com tecnologia de ponta e mais de 10 anos de experiência. 
                 <span className="text-cyan-400 font-semibold"> Diagnóstico gratuito</span> e garantia premium.
               </p>
               
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" className="bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-700 hover:from-cyan-600 hover:via-blue-700 hover:to-purple-800 text-white shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300 group">
-                  <Phone className="mr-2 h-5 w-5" />
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                <Button size="default" className="w-full sm:w-auto bg-gradient-to-r from-cyan-500 via-blue-600 to-purple-700 hover:from-cyan-600 hover:via-blue-700 hover:to-purple-800 text-white shadow-2xl hover:shadow-cyan-500/25 transition-all duration-300 group">
+                  <Phone className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                   Ligar Agora
-                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowRight className="ml-2 h-3 w-3 sm:h-4 sm:w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
-                <Button size="lg" variant="outline" className="border-2 border-cyan-400/50 text-cyan-300 hover:bg-cyan-400/10 hover:border-cyan-300 bg-black/50 backdrop-blur-sm shadow-xl transition-all duration-300">
-                  <MapPin className="mr-2 h-5 w-5" />
+                <Button size="default" variant="outline" className="w-full sm:w-auto border-2 border-cyan-400/50 text-cyan-300 hover:bg-cyan-400/10 hover:border-cyan-300 bg-black/50 backdrop-blur-sm shadow-xl transition-all duration-300">
+                  <MapPin className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
                   Como Chegar
                 </Button>
               </div>
             </div>
             
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-cyan-500/30 via-purple-500/30 to-pink-500/30 rounded-3xl blur-2xl animate-pulse"></div>
+            <div className="relative mt-8 lg:mt-0">
+              <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-cyan-500/30 via-purple-500/30 to-pink-500/30 rounded-2xl sm:rounded-3xl blur-xl sm:blur-2xl animate-pulse"></div>
               <img 
                 src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=600&h=400&fit=crop" 
                 alt="Reparo de computadores"
-                className="relative rounded-3xl shadow-2xl w-full object-cover h-96 border border-cyan-400/30"
+                className="relative rounded-2xl sm:rounded-3xl shadow-2xl w-full object-cover h-64 sm:h-80 lg:h-96 border border-cyan-400/30"
               />
-              <div className="absolute -bottom-8 -left-8 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 p-6 rounded-2xl shadow-2xl backdrop-blur-sm border border-yellow-400/30">
-                <div className="flex items-center space-x-3">
-                  <Shield className="h-8 w-8 text-white" />
+              <div className="absolute -bottom-4 -left-4 sm:-bottom-6 sm:-left-6 lg:-bottom-8 lg:-left-8 bg-gradient-to-r from-yellow-500 via-orange-500 to-red-500 p-3 sm:p-4 lg:p-6 rounded-xl sm:rounded-2xl shadow-2xl backdrop-blur-sm border border-yellow-400/30">
+                <div className="flex items-center space-x-2 sm:space-x-3">
+                  <Shield className="h-5 w-5 sm:h-6 sm:w-6 lg:h-8 lg:w-8 text-white" />
                   <div>
-                    <p className="font-bold text-white text-lg">Garantia</p>
-                    <p className="text-yellow-100 text-sm">90 dias</p>
+                    <p className="font-bold text-white text-sm sm:text-base lg:text-lg">Garantia</p>
+                    <p className="text-yellow-100 text-xs sm:text-sm">90 dias</p>
                   </div>
                 </div>
               </div>
@@ -204,15 +208,15 @@ Sistema Ra Assistência Técnica
       </section>
 
       {/* Cards Informativos */}
-      <section className="py-20 bg-gradient-to-br from-gray-900 to-black">
+      <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-gray-900 to-black">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h3 className="text-4xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+          <div className="text-center mb-12 sm:mb-16">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
               Por que escolher a Ra Assistência?
             </h3>
-            <p className="text-gray-400 max-w-2xl mx-auto text-lg">Nossos diferenciais tecnológicos que nos tornam únicos</p>
+            <p className="text-gray-400 max-w-2xl mx-auto text-base sm:text-lg">Nossos diferenciais tecnológicos que nos tornam únicos</p>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             <Card className="group bg-black/50 border-2 border-cyan-500/30 hover:border-cyan-400/60 hover:shadow-2xl hover:shadow-cyan-500/20 transition-all duration-500 overflow-hidden backdrop-blur-sm">
               <CardHeader className="text-center relative">
                 <div className="mx-auto bg-gradient-to-br from-cyan-500/20 to-cyan-600/30 w-20 h-20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border border-cyan-400/30">
@@ -259,18 +263,18 @@ Sistema Ra Assistência Técnica
       </section>
 
       {/* Serviços Cards */}
-      <section id="services" className="py-24 bg-gradient-to-br from-black via-gray-900 to-slate-900">
+      <section id="services" className="py-12 sm:py-16 lg:py-24 bg-gradient-to-br from-black via-gray-900 to-slate-900">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-20">
-            <h3 className="text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
               Serviços Tecnológicos
             </h3>
-            <p className="text-gray-400 max-w-3xl mx-auto text-xl leading-relaxed">
+            <p className="text-gray-400 max-w-3xl mx-auto text-base sm:text-lg lg:text-xl leading-relaxed">
               Soluções avançadas para seus dispositivos com tecnologia de última geração
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Smartphones */}
             <Card className="group bg-black/70 border border-cyan-500/30 shadow-2xl hover:shadow-cyan-500/30 transition-all duration-500 overflow-hidden backdrop-blur-sm">
               <CardHeader className="bg-gradient-to-br from-cyan-500/10 to-cyan-600/20 border-b border-cyan-500/30">
@@ -392,11 +396,11 @@ Sistema Ra Assistência Técnica
       </section>
 
       {/* Diferenciais */}
-      <section className="py-24 relative bg-gradient-to-br from-gray-900 via-black to-purple-900 overflow-hidden">
+      <section className="py-12 sm:py-16 lg:py-24 relative bg-gradient-to-br from-gray-900 via-black to-purple-900 overflow-hidden">
         <div className="absolute inset-0 bg-black/40"></div>
         {/* Floating particles */}
         <div className="absolute inset-0">
-          {Array.from({ length: 50 }).map((_, i) => (
+          {Array.from({ length: 30 }).map((_, i) => (
             <div
               key={i}
               className="absolute w-1 h-1 bg-cyan-400 rounded-full opacity-20 animate-pulse"
@@ -410,18 +414,18 @@ Sistema Ra Assistência Técnica
           ))}
         </div>
         <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-20">
-            <h3 className="text-5xl md:text-6xl font-bold mb-6">
+          <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+            <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6">
               <span className="bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent">
                 Tecnologia do Futuro
               </span>
             </h3>
-            <p className="text-gray-400 text-xl max-w-3xl mx-auto">
+            <p className="text-gray-400 text-base sm:text-lg lg:text-xl max-w-3xl mx-auto">
               Utilizamos as mais avançadas tecnologias e práticas do mercado mundial
             </p>
           </div>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
             <div className="text-center group">
               <div className="bg-gradient-to-br from-green-500/20 to-green-600/30 backdrop-blur-sm w-24 h-24 rounded-3xl flex items-center justify-center mx-auto mb-8 border border-green-500/50 group-hover:scale-110 transition-all duration-500 shadow-2xl shadow-green-500/20">
                 <Shield className="h-12 w-12 text-green-400" />
@@ -456,19 +460,19 @@ Sistema Ra Assistência Técnica
       </section>
 
       {/* Contato - Updated with new contact information and form functionality */}
-      <section className="py-24 bg-gradient-to-br from-black via-gray-900 to-slate-900">
+      <section className="py-12 sm:py-16 lg:py-24 bg-gradient-to-br from-black via-gray-900 to-slate-900">
         <div className="container mx-auto px-4">
           <div className="max-w-7xl mx-auto">
-            <div className="text-center mb-20">
-              <h3 className="text-5xl font-bold mb-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+            <div className="text-center mb-12 sm:mb-16 lg:mb-20">
+              <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
                 Contato Tecnológico
               </h3>
-              <p className="text-gray-400 text-xl max-w-3xl mx-auto">
+              <p className="text-gray-400 text-base sm:text-lg lg:text-xl max-w-3xl mx-auto">
                 Entre em contato através dos nossos canais digitais avançados
               </p>
             </div>
             
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12">
               <Card className="bg-black/70 shadow-2xl border border-cyan-500/30 backdrop-blur-sm">
                 <CardHeader className="bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border-b border-cyan-500/30">
                   <CardTitle className="text-white text-3xl">Canais de Contato</CardTitle>
@@ -590,19 +594,19 @@ Sistema Ra Assistência Técnica
       </section>
 
       {/* Footer */}
-      <footer className="bg-gradient-to-r from-black via-gray-900 to-black py-16 border-t border-gray-700/50">
+      <footer className="bg-gradient-to-r from-black via-gray-900 to-black py-8 sm:py-12 lg:py-16 border-t border-gray-700/50">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <div className="flex items-center space-x-4 mb-8 md:mb-0">
-              <div className="p-3 bg-gradient-to-br from-cyan-500 via-blue-600 to-purple-700 rounded-2xl shadow-2xl relative">
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-400 to-purple-600 rounded-2xl blur-lg opacity-60 animate-pulse"></div>
-                <Wrench className="h-8 w-8 text-white relative z-10" />
+            <div className="flex items-center space-x-3 sm:space-x-4 mb-6 sm:mb-8 md:mb-0">
+              <div className="p-2 sm:p-3 bg-gradient-to-br from-cyan-500 via-blue-600 to-purple-700 rounded-xl sm:rounded-2xl shadow-2xl relative">
+                <div className="absolute inset-0 bg-gradient-to-br from-cyan-400 to-purple-600 rounded-xl sm:rounded-2xl blur-lg opacity-60 animate-pulse"></div>
+                <Wrench className="h-6 w-6 sm:h-8 sm:w-8 text-white relative z-10" />
               </div>
-              <span className="font-bold text-white text-2xl">Ra Assistência Técnica</span>
+              <span className="font-bold text-white text-lg sm:text-xl lg:text-2xl">Ra Assistência Técnica</span>
             </div>
             <div className="text-center md:text-right">
-              <p className="text-gray-400 text-lg">© 2024 Ra Assistência Técnica. Todos os direitos reservados.</p>
-              <p className="text-gray-500 text-sm mt-2">Desenvolvido com tecnologia futurística e inovação</p>
+              <p className="text-gray-400 text-sm sm:text-base lg:text-lg">© 2024 Ra Assistência Técnica. Todos os direitos reservados.</p>
+              <p className="text-gray-500 text-xs sm:text-sm mt-2">Desenvolvido com tecnologia futurística e inovação</p>
             </div>
           </div>
         </div>
